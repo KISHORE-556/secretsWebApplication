@@ -9,7 +9,11 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const MemoryStore = require('memorystore')(session)
 const app = express();
+const path = require('path');
 
+const viewsPath = path.join(__dirname, 'views');
+
+app.set('views', viewsPath);
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
